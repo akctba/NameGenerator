@@ -69,7 +69,7 @@ public class ConsoleApplication implements View {
 
 			// por partes
 			for(int i = 1 ; i <= num; ++i) {
-				
+				//TODO find random names
 				
 				
 				if(i%SAVE_LIMIT == 0) {
