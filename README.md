@@ -1,0 +1,2 @@
+# NameGenerator
+Random name generator
