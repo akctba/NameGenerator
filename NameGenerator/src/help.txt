@@ -4,20 +4,22 @@
 CLI Options:
 
 v - Verifies if a number is prime, using brute force verification
-	Syntax: java -jar AKprime.jar V <n>
+	Syntax: java -jar AKnames.jar V <n>
 	 			-- OR --
-			java ca.ciccc.ak.primeNumbers.PrimeGen v <n>
+			java ca.ciccc.ak.nameGenerator.NameGen v <n>
 	where <n> is the number to be verified.
 	
 g - Generate a list of prime numbers until the limit
-	Syntax: java -jar AKprime.jar G <n> <file>
+	Syntax: java -jar AKnames.jar G <n> <file>
 		 		-- OR --
-			java ca.ciccc.ak.primeNumbers.PrimeGen G <n> <file> 
+			java ca.ciccc.ak.nameGenerator.NameGen G <n> <file> 
 	where <n> is the number limit.
 	<file> is the path and file name to save the list.
 	
 gui - Open the GUI interface
-	Syntax: java -jar AKprime.jar GUI
+	Syntax: java -jar AKnames.jar GUI
+		 		-- OR --
+			java ca.ciccc.ak.nameGenerator.NameGen GUI
 
 ~~~~~~~ ~~~~~~~~~~~~ ~~~~~~~	
 
