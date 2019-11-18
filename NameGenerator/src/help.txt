@@ -2,18 +2,12 @@
 ~~~~~~~ HELP CONTENT ~~~~~~~
 
 CLI Options:
-
-v - Verifies if a number is prime, using brute force verification
-	Syntax: java -jar AKnames.jar V <n>
-	 			-- OR --
-			java ca.ciccc.ak.nameGenerator.NameGen v <n>
-	where <n> is the number to be verified.
 	
-g - Generate a list of prime numbers until the limit
+g - Generate a list of random names in a CSV file
 	Syntax: java -jar AKnames.jar G <n> <file>
 		 		-- OR --
 			java ca.ciccc.ak.nameGenerator.NameGen G <n> <file> 
-	where <n> is the number limit.
+	where <n> is the number of names.
 	<file> is the path and file name to save the list.
 	
 gui - Open the GUI interface
