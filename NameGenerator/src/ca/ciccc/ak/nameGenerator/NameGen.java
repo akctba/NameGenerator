@@ -11,9 +11,9 @@ public class NameGen {
 
 	public static void main(String[] args) {
 
-		System.out.println("##########################");
-		System.out.println("# PRIME NUMBER GENERATOR #");
-		System.out.println("##########################");
+		System.out.println("#########################");
+		System.out.println("# RANDOM NAME GENERATOR #");
+		System.out.println("#########################");
 		System.out.println();
 
 		String option = "";
