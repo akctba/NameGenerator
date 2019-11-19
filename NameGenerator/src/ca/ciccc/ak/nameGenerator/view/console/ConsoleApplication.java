@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import ca.ciccc.ak.nameGenerator.core.ResourceFile;
 import ca.ciccc.ak.nameGenerator.interfaces.View;
+import ca.ciccc.ak.nameGenerator.tools.UtilFile;
 
 public class ConsoleApplication implements View {
 
@@ -51,7 +52,7 @@ public class ConsoleApplication implements View {
 			// load the files
 			ResourceFile names = new ResourceFile("names.txt");
 			ResourceFile lastNames = new ResourceFile("lastnames.txt");
-
+			
 			// por partes
 			for (int i = 1; i <= num; ++i) {
 				// TODO find random names
@@ -65,11 +66,8 @@ public class ConsoleApplication implements View {
 				
 				System.out.println(newName);
 				
-				//TODO salvar o newName
+				UtilFile.saveOnFile(path, newName);
 
-				if (i % SAVE_LIMIT == 0) {
-					// TODO salvar no arquivo
-				}
 			}
 
 			Date end = new Date();

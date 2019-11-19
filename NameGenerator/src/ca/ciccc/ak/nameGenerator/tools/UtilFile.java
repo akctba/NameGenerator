@@ -77,8 +77,11 @@ public class UtilFile {
 
 	public static void saveOnFile(String path, String string) {
 		try {
-			FileWriter writer = new FileWriter(path, true);
-			writer.append("\n");
+			File f = new File(path);
+			boolean append = f.exists();
+			FileWriter writer = new FileWriter(path, append);
+			if(append)
+				writer.append("\n");
 			writer.append(string);
 
 			writer.flush();
