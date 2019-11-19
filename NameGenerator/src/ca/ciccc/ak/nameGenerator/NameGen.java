@@ -44,7 +44,7 @@ public class NameGen {
 	private static void printHelp() {
 		Class<UtilFile> clazz = UtilFile.class;
 		InputStream helpFile = clazz.getResourceAsStream("/help.txt");
-		System.out.println(helpFile);
+		//System.out.println(helpFile);
 		
 		UtilFile.printFromInputStream(helpFile);
 

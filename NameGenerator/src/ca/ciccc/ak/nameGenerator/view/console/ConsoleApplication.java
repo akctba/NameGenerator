@@ -1,38 +1,34 @@
 package ca.ciccc.ak.nameGenerator.view.console;
 
 import java.util.Date;
-import java.util.List;
 import java.util.Scanner;
 
+import ca.ciccc.ak.nameGenerator.core.ResourceFile;
 import ca.ciccc.ak.nameGenerator.interfaces.View;
 
 public class ConsoleApplication implements View {
-	
+
 	private Scanner scanner;
-	private String option = "";
 	private Integer num;
 	private String path;
-	
+
 	public static final int SAVE_LIMIT = 100;
-	
+
 	public ConsoleApplication() {
 		// default contructor
 	}
 
 	public ConsoleApplication(String[] args) {
 		if (args.length > 0) {
-			option = args[0];
-		}
-		if (args.length > 1) {
 			try {
-				num = Integer.decode(args[1]);
+				num = Integer.decode(args[0]);
 			} catch (NumberFormatException e) {
 				num = null;
 			}
 		}
-		
-		if (args.length > 2) {
-			path = args[2];
+
+		if (args.length > 1) {
+			path = args[1];
 		}
 	}
 
@@ -40,58 +36,49 @@ public class ConsoleApplication implements View {
 	public void start() {
 		scanner = new Scanner(System.in);
 		
-		while (!"g".equalsIgnoreCase(option)) {
-			System.out.println("# OPTIONS:");
-			System.out.println("# G - Generate a list of prime numbers");
-			System.out.println("# Q - Quit the program");
-
-			option = scanner.nextLine().toLowerCase();
-			
-			if ("q".equals(option)) {
-				scanner.close();
-				return;
-			}
-		}
-		
-		switch (option) {
-		case "g":
-			if(num == null) {
-				addOutput("Number limit: ");
+			if (num == null) {
+				addOutput("Number of names: ");
 				num = scanner.nextInt();
 			}
-			if(path == null) {
+			if (path == null) {
 				addOutput("Path to save the list: ");
 				path = scanner.next();
 			}
-			//TODO UtilFile.validateFile(path);
-			
+			// TODO UtilFile.validateFile(path);
+
 			Date ini = new Date();
 
+			// load the files
+			ResourceFile names = new ResourceFile("names.txt");
+			ResourceFile lastNames = new ResourceFile("lastnames.txt");
+
 			// por partes
-			for(int i = 1 ; i <= num; ++i) {
-				//TODO find random names
+			for (int i = 1; i <= num; ++i) {
+				// TODO find random names
 				
+				StringBuilder sb = new StringBuilder();
+				sb.append(names.getRandomLine());
+				sb.append(" ");
+				sb.append(lastNames.getRandomLine());
+
+				String newName = sb.toString();
 				
-				if(i%SAVE_LIMIT == 0) {
-					//TODO salvar no arquivo
+				System.out.println(newName);
+				
+				//TODO salvar o newName
+
+				if (i % SAVE_LIMIT == 0) {
+					// TODO salvar no arquivo
 				}
 			}
-			
+
 			Date end = new Date();
 			long dif = end.getTime() - ini.getTime();
-			//UtilFile.saveOnFile(path, dif + " milliseconds");
+			// UtilFile.saveOnFile(path, dif + " milliseconds");
 			addOutput(dif + " milliseconds");
 
-			break;
-		default:
-			scanner.close();
-			throw new IllegalArgumentException("Unexpected value: " + option);
-		}
 
 		scanner.close();
-		
-		
-		
 
 	}
 
